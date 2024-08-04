@@ -1,0 +1,43 @@
+section.s {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  h1 {
+    font-size: clamp(25px, 30vw, 180px);
+    color: rgba(226, 175, 155, 0.247);
+  }
+  div {
+    max-width: 500px;
+    padding-left: 5px;
+  }
+  h2 {
+    color: orange;
+  }
+  p {
+    color: orange;
+  }
+}
+img {
+  max-width: 700px;
+  border-radius: 10px;
+}
+@media screen and (max-width: 900px) {
+  h1 {
+    padding-left: 5px;
+  }
+  img {
+    display: none;
+  }
+}
+section.a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  button {
+    display: block;
+  }
+}

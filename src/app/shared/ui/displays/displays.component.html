@@ -1,0 +1,21 @@
+<section class="row d-flex justify-content-center flex-wrap gap-3 pt-5">
+  @if (episod) {@for (item of episod; track $index) {
+  <div class="card" style="width: 18rem">
+    <img
+      [src]="item.images[0]"
+      class="card-img-top"
+      alt="{{ item.title }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ item.title }}</h5>
+      <p class="card-text">
+        {{ item.description }}
+      </p>
+      <h2>price: {{ item.price }}</h2>
+    </div>
+    <div class="card-body">
+      <button class="btn btn-dark" id="s">add cart</button>
+    </div>
+  </div>
+  }}
+</section>

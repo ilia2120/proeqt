@@ -1,0 +1,94 @@
+<div class="styck form-contrl">
+  @for (item of msuq; track $index) {
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <p class="card-text">
+        {{ item.title }}
+        price:{{ item.price }}
+      </p>
+    </div>
+    <button class="btn btn-danger" (click)="deletes(item.id)">delete</button>
+  </div>
+  }
+  <span class="badge text-bg-dark fs-5">Total Price: {{ totalPrice }}</span>
+</div>
+
+<section class="container-xll m-auto pt-5 gap-3 sa">
+  <section
+    class="d-flex justify-content-center align-items center align-content-center gap-3"
+  >
+    @for (ite of masive; track $index) {
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ ite.name }}
+      </button>
+      <ul class="dropdown-menu">
+        @for(its of ite.mas;track $index){ @for (item of massive; track $index)
+        {@if(item.name === its){
+        <app-display [episod]="item"></app-display
+        >}}}
+      </ul>
+    </div>
+    }
+  </section>
+  <section class="container-xll d-flex justify-content-center pt-5 gap-3 sa">
+    <div class="si">
+      <input
+        type="search"
+        id="site-search"
+        name="q"
+        aria-label="search products"
+        [(ngModel)]="nam"
+      />
+
+      <button class="btn btn-dark">
+        <a [routerLink]="url + nam">Search</a>
+      </button>
+    </div>
+  </section>
+  <section
+    class="container-xl d-flex justify-content-center align-items center align-content-center gap-3 pt-5"
+    id="b"
+    [ngClass]="{ 'd-none': (showChacter$ | async) === true }"
+  >
+    @for(sas of sasiv;track $index){<app-creat
+      [masive]="sas"
+      (forcart)="forcat($event)"
+    ></app-creat
+    >}
+  </section>
+  <section
+    class="d-flex justify-content-center pt-5"
+    [ngClass]="{ 'd-none': (showChacter$ | async) === true }"
+  >
+    <div class="form-contrl d-flex gap-3 c">
+      <button
+        class="btn btn-dark"
+        (click)="loadPreviousPage()"
+        [disabled]="skip === 0"
+      >
+        -
+      </button>
+      <span class="badge text-bg-dark fs-5"
+        >{{ currentPage }} / {{ totalPages }}</span
+      >
+      <button
+        class="btn btn-dark"
+        (click)="loadNextPage()"
+        [disabled]="skip + limit >= total"
+      >
+        >
+      </button>
+    </div>
+  </section>
+  <section class="container-xl">
+    @if (showChacter$ | async) {
+    <router-outlet></router-outlet>
+    }
+  </section>
+</section>
